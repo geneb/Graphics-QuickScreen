@@ -1,0 +1,333 @@
+12/30/93
+
+This file documents new features of Graphics QuickScreen that were added
+since the printing of the manual.
+
+
+Contents:
+
+
+1. Loading Microsoft Windows bitmap (.BMP) and Icon (.ICO) files
+
+2. Drawing 3D panels and frames, new settings in the "System Settings" dialog
+   box
+
+3. Tiling with the contents of the paste buffer
+
+4. Additional fonts and the new "Draw Text" dialog box
+
+5. Managing the CNF.GQS configuration file
+
+6. Locating GQS support files
+
+7. Saving Grid Snap settings
+
+8. Creating dual state push buttons
+
+9. Loading .GFN font files that contain characters above 126
+
+
+
+1) Loading Microsoft Windows bitmap (.BMP) and Icon (.ICO) files
+
+Graphics QuickScreen now has the ability to load Microsoft Windows 16 color or
+monochrome device independant Bitmap and Icon files. These files are loaded
+into the paste buffer with the "Load Paste Buffer..." menu selection.  When
+the "Open File" Dialog box appears, enter the complete path and file name of
+the bitmap or icon file, or enter "*.BMP" or *.ICO" and click OK or press
+Enter to get a list of file names. Once a file is selected, it is loaded into
+the paste buffer. The mouse pointer will change from white to black as the
+image is loaded and then back to white once loading is complete. Since larger
+bitmaps take a few seconds to load, this is used as an indicator to let you
+know when file has been loaded. Displaying the image is accomplished by
+selecting the "Paste" command from the Edit menu. When "Paste" is selected,
+the image will appear in the upper left corner of the screen where it can then
+be positioned as with any paste operation by dragging the mouse or using the
+cursor keys.  Icon files will retain their unique ability to have transparent
+areas within the image.
+
+Because the paste buffer is limited to 64k, bitmaps that you load must also be
+no larger than 64k. If you attempt to load a file that is too large or has too
+many colors, an error message will appear and the load procedure will be
+aborted. If you need to load a bitmap that is larger than 64K, convert it to
+PCX format by loading the image into Windows Paintbrush and then saving it as
+a PCX file.
+
+The Windows specifications allow for icon files containing multiple icon
+images. These icon files will not be loaded properly, but fortunately, most
+icon files contain only a single icon. In fact, we were able to load all icon
+and bitmap files supplied by Visual Basic 3.0 and all but two of the bitmap
+files supplied by Microsoft Windows 3.1.
+
+
+
+
+2) Drawing 3D panels and frames, new settings in the "System Settings" dialog
+   box 
+
+With the widespread popularity of programs that have a 3D appearance, several
+new commands have been added to the Draw menu to help you easily create 3D
+panels and frames. These commands are available from the Draw menu.  The
+effect of each command is described below:
+
+
+3D Panel  (Drop)
+  Draws a solid rectangle in the current color with a 3 dimensional frame
+  effect that gives a sunken appearance.
+
+
+3D Panel  (Pop)
+  Draws a solid rectangle in the current color with a 3 dimensional frame
+  effect that gives a raised appearance.
+
+
+3D Frame  (Drop)
+  Draws a 3 dimensional frame around a rectangle giving it a sunken
+  appearance.
+
+
+3D Frame  (Pop)
+  Draws a 3 dimensional frame around a rectangle giving it a raised
+  appearance.
+
+The procedure for drawing any of the 3D effects is the same as for normal box
+drawing.
+
+
+You can specify the width of the 3D bevel and whether or not a black
+border is to appear on the inside edged of the frame. These options are
+selected from the System Settings menu under "3D Properties". A text box
+labeled "Bevel Width" lets you enter the width of the 3D frame, and the status
+of the check box labeled "Border" determines whether or not a black border
+will appear.  (The thickness of the black border (if selected) will increase
+by one pixel for each additional eight pixels of bevel width.)
+
+The colors used for the 3D frame are entered in the text boxes labeled "High
+Color" and "Low Color". The default colors are set to bright white (Color 15)
+for the highlight color and dark gray (color 8) for the shaded color.
+
+The 3D border is drawn outside of the defining rectangle. This lets you easily
+draw frames around existing fields using the same coordinates used to draw the
+field initially.
+
+
+
+
+3) Tiling with the contents of the paste buffer 3.
+
+You can tile any rectangular region of the screen with the current contents of
+the Paste Buffer. Tiling is a process that fills a region by duplicating the
+image in the Paste buffer much like tiles on a wall. This lets you easily
+create "Wallpaper" that can be used as a backgrounds for your forms or for the
+body of the form itself.
+
+To tile a region:
+
+  1. Select the "Tile Paste Image" command from the Edit menu. (This command
+  will only be available when there is something in the Paste Buffer.) A
+  drawing cursor will appear.
+
+
+  2. Define the area to be tiled using the Box drawing procedure.
+
+Note that if you are tiling a region with a Windows icon file, the image will
+not retain its unique ability to have transparant areas within the image.
+These areas will be displayed in black.
+
+
+
+
+4) Additional fonts and the new "Draw Text" dialog box
+
+The number of fonts supplied with Graphics QuickScreen has been increased from
+from five to twenty-three. Because of the increased number of fonts, the Draw
+Text dialog box has been modified to let you select the desired font from a
+list box instead of providing individual option buttons. In addition, the font
+name can be entered directly in the text box labeled "Font".
+
+The font files all follow the same naming convention. That is, the file name
+first includes the name of the font followed by a number that indicates the
+height an uppercase "H" (in pixels) when displayed at 1:1. Bold versions of
+the font share the same name as the non-bold versions but are identified with
+the letter "B" after the font height. For example, HELV7.GFN indicates a
+helvetica font eight pixels high, while HELV7B.GFN is a bold version of the
+same font.
+
+Many of the fonts are supplied in several sizes. This is because even though
+all fonts can be scaled up or down, fonts that are scaled down become too
+distorted for most applications. Thus, you should use whichever font is
+closest to the desired size. When scaling the font up, best results are
+achieved by selecting the largest size available for the desired font.
+
+The supplied fonts are summarized in the following table:
+(.pt size below indicates the height in pixels of a capital letter "H" when
+displayed at 1:1.)
+
+
+ Font file        Description
+ ---------        ---------------------------------------------
+ ARIEL10          Ariel 10pt
+ ARIEL10B         Ariel 10pt bold
+ ARIEL12          Ariel 12pt
+ ARIEL12B         Ariel 12pt bold
+
+ FUTURE11         Future font 11pt
+
+ HELV7            Helvetica 7pt
+ HELV7B           Helvetica 7pt bold
+ HELV9            Helvetica 9pt
+ HELV9B           Helvetica 9pt bold
+ HELV10           Helvetica 10pt
+ HELV10B          Helvetica 10pt bold
+ HELV12           Helvetica 12pt
+ HELV12B          Helvetica 12pt bold
+
+ OLDENG15         Old English font 15pt
+
+ TINY5.GFN        Very small font 5pt
+ TINY6.GFN        Very small font 6pt
+ TINY7.GFN        Small font 7pt
+
+ TROM7            Times Roman 7pt
+ TROM9            Times Roman 9pt
+ TROM11           Times Roman 11pt
+ TROM11B          Times Roman 11pt bold
+
+ WIN10            Microsoft Windows System style font 10pt
+ WIN9A            Microsoft Windows Fixed System style font 9pt
+
+
+You can also specify the spacing (in pixels) to be used between each letter.
+Wide spacings between letters can provide a dramatic effect to titles and
+headings. Enter the desired spacing in the text box labeled "H Spacing".
+
+
+
+
+
+5) Managing the CNF.GQS configuration file
+
+The GQS.CNF file is a configuration file that is read each time you start
+Graphics QuickScreen. This file stores your current configuration settings,
+i.e., all data assigned in the System Settings dialog box as well as path
+settings for the Drawing Palette's icon files, the tile palette bitmap and
+tile file database, and for the Draw Text font files. On start up, GQS will
+look in the current directory for this file. If found, the settings from this
+file will take effect. If it is not found, GQS will look in its own directory
+(the directory into which GQS.EXE is installed) for the GQS.CNF file. If
+found, the settings in this file will take effect. If the configuration file
+cannot be found in either place, GQS will use its own internal settings.
+
+When you end a GQS session, the configuration file will be updated with the
+current settings and saved into the same directory in which it was found. This
+arrangment lets you have either a single configuration file that is always
+updated to the most recent settings, or lets you have different configuration
+files in each project directory that contain settings that are unique to the
+project.
+
+Since GQS always writes the configuration file to the directory in which it
+was found, you must copy GQS.CNF into your project directory if you want to
+have a unique configuration file for each project.
+
+ 
+6) Locating GQS support files
+
+Graphics QuickScreen requires a number of support files in order for it to
+work correctly. These files can be stored in either the GQS directory (the
+directory into which GQS.EXE is installed) or in a directory of your choosing.
+If the files are stored in the GQS directory, they will always be found
+regardless of the directory you are in when you start GQS. If you install them
+in any other directory, GQS relies on the path settings in the GQS.CNF
+configuration file to locate them. In this case you should make sure that the
+GQS.CNF file is in either your current directory or in the GQS directory and
+that the path settings it contains are correct. To change the path settings
+for any of the support files, select the Set Paths... menu command from the
+Settings menu. A dialog box will appear to let you enter the correct path
+names. The various support files are listed below:
+
+All font files:
+(all files with a .GFN extension)
+
+Drawing Palette Icon files:
+ZOOM.GMP, BUCKET.GMP, PBRUSH.GMP, CLRWHEEL.GMP, and SCRIBBLE.GMP
+
+Tile Palette bitmap and database:
+TILEPAL.GM4, TPAL.TIL
+
+
+
+
+
+7) Saving Grid Snap settings
+
+The current grid snap settings can be saved as part of the GQS.CNF
+configuration file. To select this option, check the "Save" check box on the
+System dialog box under the "Settings" menu 
+
+
+
+
+8) Creating dual state push buttons
+
+When clicking on a mouse field or when pressing the designated key when in the
+mouse field, Frm.KeyCode will return a value of 255 + the field number.  This
+lets you determine when the field has been activated rather than waiting for a
+mouse button or key release. The assigned keycode will still be returned when
+either the mouse button or keyboard key has been released. This feature can be
+used to help simulate "push/push" type push buttons (i.e., buttons that stay
+down when they are pressed).  
+     To create "Push/Push" style push buttons, you will need to create two
+bitmaps (.GMP files); the first will be a picture of the button in its normal
+position, the second will be a picture of the button in its down position.
+Simply draw these buttons in the GQS editor and save each picture by capturing
+them into the paste buffer with either the Copy or Move command. Then save the
+images to disk with the "Save Paste Buffer..."  menu selection. Draw a picture
+of the button where you would like it to appear on the form in its default
+state or paste the image you just created.
+     Define the region where you want the "Push/Push" button as a Mouse
+region, and check the "Toggle" check box on the field's dialog box. If you
+want the push button to have an additional black outline surrounding it when
+it is the current field, make the field's Tab color the same color as the
+color surrounding the push button, and define the mouse region 1 pixel larger
+on each side than the actual picture of the button.  
+     In your program, load the bitmaps (.GMP files) into separate arrays using
+the GetGMP subroutine. Once they are in memory, you simply use BASIC's graphic
+PUT command to display which ever image is appropriate. With toggling mouse
+fields, the field is selected whenever Form$(N, 0) = "X", and deselected
+whenever Form$(N, 0) = " ". PUT positions the image based on its upper left
+corner coordinates, so you can use Fld(N).Row and Fld(N).LCol to position the
+image.  
+     The following example assumes that the two button images have been loaded
+into arrays called "ButtonUp" and "ButtonDown", and assumes that they are
+associated with field 5: 
+
+DO 
+  CALL EditFormG(Form$(), Fld(), Frm, Action) 
+
+
+  SELECT CASE Frm.KeyCode 
+    CASE 255 + 5                        'Just clicked on mouse field (field 5) 
+      HideCursor                        'Turn of the mouse cursor 
+      IF Form$(N, 5) = "X" THEN         'Button already down 
+         PUT (Fld(5).LCol + 1, Fld(5).Row + 1), ButtonUp, PSET 
+      ELSE                              'Button is up 
+         PUT (Fld(5).LCol + 1, Fld(5).Row + 1), ButtonDown, PSET 
+      END IF 
+      ShowCursor                        'Turn the mouse cursor back on 
+    CASE ...  
+
+
+  END SELECT 
+
+LOOP until Frm.KeyCode = 27 
+
+
+
+
+9. Loading .GFN font files that contain characters above 126
+
+GQS can now be started whith the "/E" command switch. This switch tells GQS to
+allocate more space for storing font definitions that contain characters above
+126. Since the fonts supplied with GQS contain only characters below ASCII
+127, this feature was added so that you can access the upper ASCII characters
+contained in some Graphic's WorkShop fonts, such as Euro.GFN.

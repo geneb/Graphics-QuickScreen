@@ -1,0 +1,14 @@
+'********** GPFont.GW - Sets up the arrays neccessary for GraphPak fonts
+
+'Copyright (c) 1990 Brian Giedt
+'Copyright (c) 1990 Crescent Software
+
+IF MaxGPFonts% = 0 THEN MaxGPFonts% = 1
+GPDat%(33) = MaxGPFonts%
+IF EuroGPFonts% THEN
+  REDIM SHARED Font$(223, MaxGPFonts% - 1), FontWidth%(223, MaxGPFonts% - 1), FontHeight%(MaxGPFonts% - 1)
+ELSE
+  REDIM SHARED Font$(95, MaxGPFonts% - 1), FontWidth%(95, MaxGPFonts% - 1), FontHeight%(MaxGPFonts% - 1)
+END IF
+
+

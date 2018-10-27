@@ -1,0 +1,8 @@
+'**** COMMON.GQS - This file is used to maintain a equivalent set of common
+'                  statements throughout the progam
+
+COMMON SHARED GPDat%(), Choice$(), Font$(), FontWidth%(), FontHeight%()
+COMMON SHARED XCoord$, YCoord$, EGAPal$, IconPath$, TilePath$, FontPath$
+COMMON SHARED Space8%, LC%, BevelWidth%, Drop%, Border%, BevelHi%, BevelLo%
+COMMON SHARED WinImage%
+

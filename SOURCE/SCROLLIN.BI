@@ -1,0 +1,17 @@
+TYPE Scroll
+  Start AS INTEGER
+  Wide AS INTEGER
+  MaxLen AS INTEGER
+  Filter AS INTEGER
+  Ky AS INTEGER
+  EdClr AS INTEGER
+  NormClr AS INTEGER
+  Action AS INTEGER
+  Row AS INTEGER
+  Col AS INTEGER
+  CurCol AS INTEGER
+  Insert AS INTEGER
+  Changed AS INTEGER
+  KeyChar AS STRING * 2
+END TYPE
+

@@ -1,0 +1,98 @@
+Compatability with Visual Basic for DOS
+
+To run your Graphics QuickScreen programs in the VBDos environment, start
+VBDOS with the GFormsVB.QLB library. If you compile and link your programs
+from the command line, link with the GForms7.LIB library. If you prefer to
+compile and link from the VBDOS environment, you will need to rename the
+GForms7.LIB library to GFormsVB.LIB. This can be done with the DOS RENAME
+command:
+
+REN GFORMS7.LIB GFORMSVB.LIB
+
+*****************************************************************************
+Converting VBDOS forms to GQS format
+
+The VBDOSGQS.EXE utility program is provided to convert your text mode VBDOS
+forms to graphics mode suitable for use with Graphics QuickScreen. Not all
+field types are supported by GQS, however, most of them can be simulated. For
+example, GQS does not support the DirList, FileList, or ListBox controls.  You
+can simulate these with the ListBox subprogram, but you will have to load the
+data you want them to display manually. It is intended however that you only
+convert forms that contain fields types that are directly supported.
+     When your VBDOS forms are converted by VBDOSGQS.EXE, you can choose
+either to ignore field types that are not directly supported, or have the
+these fields added to your form as Mouse Fields. Mouse Fields are used because
+you can Tab to them or click on them with the mouse. Thus, when you select one
+of these Mouse Fields, you can call ListBox to display the list in the Mouse
+Field window. PictureBoxes are also converted to Mouse Fields so
+their coordinates can be stored in the Fld() array. The coordinates for the
+Mouse Fields are stored in Fld(N).Row, Fld(N).LCol, Fld(N).RCol and
+Fld(N).ScratchI in pixels.
+
+The following list describes how VBDOSGQS.EXE handles different VBDOS control
+types:
+
+VBDos Control            GQS Field Type
+==============           =================================================
+CheckBox                 Logical field - True Char = "X", False Char = " "
+ComboBox                 MultipleChoice field
+Command Button           Push Button - KeyCode = 13
+DirList                  MouseField
+DriveList                MultipleChoice field
+FileList                 MouseField
+Frame                    Duplicates a frame's appearance but has no
+                         functionality
+HScrollBar               HScrollBar
+Label                    Duplicates a label's appearance but has no
+                         functionality
+ListBox                  MouseField
+Option Button            Logical Field - True Char = "", False Char = " "
+                         Logic must be coded manually for these fields to work
+                         as option buttons
+Picture Box              Mouse Field
+Text Box                 Optionally, either a Scrolling Text field where Max
+                         length is set to 2 * Width, Filter = 0; or as a
+                         String field where length = Wide
+Timer                    Not Supported
+VScrollBar               VScrollBar
+
+
+To convert your forms, run the VBDOSGQS.EXE program. A dialog box will appear
+prompting you for the following information:
+
+VBDOS.FRM file:          Enter the name of your VBDos .FRM file. The file
+                         MUST have been saved in text format.
+
+GQS file name:           Enter the name to use for the converted file. You can
+                         include a drive and directory if desired.
+
+[ ] Ignore Non-supported VBDOS field types:
+                         When checked, FileList, DirList, ListBox and
+                         PictureBox controls will not be included in the
+                         conversion.
+
+[ ] Emulate text mode    When checked, VBDOSGQS will attempt to duplicate
+                         the text mode appearance of your VBDos form. When
+                         unchecked, VBDOSGQS will perform a more "graphical"
+                         conversion similar to the demonstration forms
+                         supplied with Graphics QuickScreen.
+
+[X] Use fixed length string fields:
+                         When checked, all text boxes will be converted to
+                         simple string fields whose length is set to the
+                         width of the field. When unchecked, text boxes are
+                         converted to Scrolling text fields whose length is
+                         set to 2 times the field width.
+
+[ ] Ignore controls with Visible property set to 0 (False)
+                         When checked, controls with the Visible property set
+                         to false will be ignored.
+
+
+When you are satisfied with your selections, click "OK" or press enter.
+VBDOSGQS will read the VBDOS .FRM file and display a second dialog box to let
+you select the desired graphics mode. The option buttons will default to the
+closest matching screen mode, but you can select whatever mode you prefer.
+After making the selection, click "OK" or press Enter and VBDOSGQS will
+convert and display your form in the graphics mode you selected. You can then
+load your converted form into the GQS editor to make further enhancements.

@@ -1,0 +1,16 @@
+TYPE ScrollBar
+  x1 AS INTEGER
+  y1 AS INTEGER
+  x2 AS INTEGER
+  y2 AS INTEGER
+  PointerPos AS INTEGER
+  LargeChange AS INTEGER
+  SmallChange AS INTEGER
+  Value AS LONG
+  Factor AS SINGLE
+  Lo AS DOUBLE
+  Hi AS DOUBLE
+  Action AS INTEGER
+  Blink AS INTEGER
+END TYPE
+
