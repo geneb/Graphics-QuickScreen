@@ -31,6 +31,16 @@ QuickScreen and Graphics QuickScreen below.  QuickScreen can be found in a
 separate repository.
 
 -------------------------------------------------------------------------------
+About Crescent Software:
+After 20 years as a professional recording engineer and musician, Ethan
+Winer founded Crescent Software in 1986, quickly building it to become the
+leading provider of add-on products for use with Microsoft compiled BASIC
+for DOS. During that time Ethan wrote numerous articles about DOS BASIC and
+assembly language for all of the major programming magazines, and also
+served as a contributing editor for PC Magazine. Ethan also received
+Microsoft's MVP award every year since 1996 for his assistance in the
+Microsoft BASIC programming newsgroups. In 1992 Ethan sold Crescent to his
+partner Don Malin, and retired in order to pursue his musical interests.
 ==============================================================================
 
 QUICKSCREEN(tm) AND GRAPHICS QUICKSCREEN(tm)
