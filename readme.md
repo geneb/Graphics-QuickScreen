@@ -14,15 +14,9 @@ The software in this repository hasn't been modified from how I received it
 from Ethan Winer, the original author.  While all the source files carry some 
 kind of Copyright notice, the software is now in the public domain.
 
-The contents of the installation floppies will be uploaded to the Internet
-Archive soon and when the manuals are scanned, they'll be uploaded there
-as well.  I'll update this readme file with a link to the manual scan when
-it's available.
+The original distribution disk files and documentation are available here:
 
-The original distribution disk files are available here:
-
-http://annex.retroarchive.org/crescent/Gqscdisk.zip
-
+http://annex.retroarchive.org/crescent/index.html
 
 Gene Buckle, October 27th, 2018
 
