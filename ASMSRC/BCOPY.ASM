@@ -1,6 +1,7 @@
 ;********* BCopy.Asm - copies a block of memory from here to there
 
-;Copyright (c) 1989 Ethan Winer
+; Copyright (c) 1989 Ethan Winer
+; Released to the Public Domain on 10/26/18.
 ;BC7 version
 
 ;Syntax -
