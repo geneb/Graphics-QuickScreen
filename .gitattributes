@@ -1,2 +1,3 @@
 # Linguist thinks .BI (BASIC Include files) are for FreeBASIC...
 *.bi linguist-language=QuickBASIC
+*.BI linguist-language=QuickBASIC
